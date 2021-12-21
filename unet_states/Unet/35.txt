@@ -1,0 +1,1 @@
+[Ep. 35/60] Loss train: 0.03, Loss val: 0.19; F1 train: 95.25, F1 val: 85.90; OA train: 98.65, OA val: 95.57
