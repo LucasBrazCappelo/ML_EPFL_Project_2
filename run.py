@@ -152,23 +152,23 @@ def masks_to_submission(submission_filename, imgs):
         for i in range(len(imgs)):
             f.writelines('{}\n'.format(s) for s in mask_to_submission_strings(i,imgs))
 
-dataset_train = [np.moveaxis(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/images/satImage_{i:03}.png"), -1, 0) for i in range(1,101)]
-dataset_train += [np.moveaxis(np.transpose(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/images/satImage_{i:03}.png"),(1,0,2)), -1, 0) for i in range(1,101)]
-dataset_train += [np.moveaxis(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/images/satImage_{i:03}.png")[::-1,::  ,:], -1, 0) for i in range(1,101)]
-dataset_train += [np.moveaxis(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/images/satImage_{i:03}.png")[::  ,::-1,:], -1, 0) for i in range(1,101)]
-dataset_train += [np.moveaxis(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/images/satImage_{i:03}.png")[::-1,::-1,:], -1, 0) for i in range(1,101)]
-dataset_train += [np.moveaxis(rotate45(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/images/satImage_{i:03}.png")), -1, 0) for i in range(1,101)]
-dataset_train += [np.moveaxis(np.transpose(rotate45(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/images/satImage_{i:03}.png")),(1,0,2)), -1, 0) for i in range(1,101)]
-dataset_train += [np.moveaxis(np.transpose(rotate45(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/images/satImage_{i:03}.png")[::-1,::  ,:]),(1,0,2)), -1, 0) for i in range(1,101)]
+dataset_train = [np.moveaxis(mpimg.imread(f"training/images/satImage_{i:03}.png"), -1, 0) for i in range(1,101)]
+dataset_train += [np.moveaxis(np.transpose(mpimg.imread(f"training/images/satImage_{i:03}.png"),(1,0,2)), -1, 0) for i in range(1,101)]
+dataset_train += [np.moveaxis(mpimg.imread(f"training/images/satImage_{i:03}.png")[::-1,::  ,:], -1, 0) for i in range(1,101)]
+dataset_train += [np.moveaxis(mpimg.imread(f"training/images/satImage_{i:03}.png")[::  ,::-1,:], -1, 0) for i in range(1,101)]
+dataset_train += [np.moveaxis(mpimg.imread(f"training/images/satImage_{i:03}.png")[::-1,::-1,:], -1, 0) for i in range(1,101)]
+dataset_train += [np.moveaxis(rotate45(mpimg.imread(f"training/images/satImage_{i:03}.png")), -1, 0) for i in range(1,101)]
+dataset_train += [np.moveaxis(np.transpose(rotate45(mpimg.imread(f"training/images/satImage_{i:03}.png")),(1,0,2)), -1, 0) for i in range(1,101)]
+dataset_train += [np.moveaxis(np.transpose(rotate45(mpimg.imread(f"training/images/satImage_{i:03}.png")[::-1,::  ,:]),(1,0,2)), -1, 0) for i in range(1,101)]
 
-labels_train = [mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8) for i in range(1,101)]
-labels_train += [np.transpose(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8),(1,0)) for i in range(1,101)]
-labels_train += [mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)[::-1,::  ] for i in range(1,101)]
-labels_train += [mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)[::  ,::-1] for i in range(1,101)]
-labels_train += [mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)[::-1,::-1] for i in range(1,101)]
-labels_train += [rotate45(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)) for i in range(1,101)]
-labels_train += [np.transpose(rotate45(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)),(1,0)) for i in range(1,101)]
-labels_train += [np.transpose(rotate45(mpimg.imread(f"/content/drive/MyDrive/MACHINE_LEARNING/training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)[::-1,::  ]),(1,0)) for i in range(1,101)]
+labels_train = [mpimg.imread(f"training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8) for i in range(1,101)]
+labels_train += [np.transpose(mpimg.imread(f"training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8),(1,0)) for i in range(1,101)]
+labels_train += [mpimg.imread(f"training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)[::-1,::  ] for i in range(1,101)]
+labels_train += [mpimg.imread(f"training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)[::  ,::-1] for i in range(1,101)]
+labels_train += [mpimg.imread(f"training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)[::-1,::-1] for i in range(1,101)]
+labels_train += [rotate45(mpimg.imread(f"training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)) for i in range(1,101)]
+labels_train += [np.transpose(rotate45(mpimg.imread(f"training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)),(1,0)) for i in range(1,101)]
+labels_train += [np.transpose(rotate45(mpimg.imread(f"training/groundtruth/satImage_{i:03}.png").round().astype(np.uint8)[::-1,::  ]),(1,0)) for i in range(1,101)]
 
 dataset_test = np.array([mpimg.imread(f"test_set_images/test_{i}/test_{i}.png") for i in range(1,51)])
 dataset_test = np.moveaxis(dataset_test, -1, 1)
