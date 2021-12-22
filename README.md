@@ -44,3 +44,4 @@ To generate our final AIcrowd submission execute:
    ```bash
 ./run.py
    ```
+It should take around 1 hour and half maximum with a recent GPU.
