@@ -1,36 +1,46 @@
-# Unet for Road Segmentation
-We built and trained a Convolutional Neural Network in Tensorflow to segment roads on satellite images,
-i.e. assign labels `road=1`, `background=0` to each pixel. We implemented a convolution/deconvolution U-Net with dilated layers from [Ronneberger et al. (2015)](https://arxiv.org/pdf/1505.04597.pdf). Data augmentation was a key element for performance improvement, we applied rotations, mirroring extension and vertical/horizontal flips.
+# Machine Learning CS-433 - Class Project 2 - Road Segmentation - EPFL
+We built and trained a Convolutional Neural Network in Pytorch to perform semantic segmentation of roads on satellite images.   
+We implemented a U-Net with padding inspired by [Ronneberger et al. (2015)](https://arxiv.org/pdf/1505.04597.pdf).   
+We did Data augmentation by rotating (45, 90, 135, 180, 225, 270, 315) or flip image.
 
-![](figures/our_unet.png)
+Our submission files are saved in the folder [submissions](submissions/).
 
+The train and evaluation contains [100 train images of size 400x400](training) and [50 evaluation images of size 608x608](test_set_images).
 
-
-The train and evaluation [data](https://github.com/aschneuw/ml-chiefs/tree/master/data) contains 100 and 50 images of size 400x400 and 604x604 respectively. These are some samples of our predictions on evaluation images:
-
-![](figures/output_test.png)
-
-
-Consult our [report](https://github.com/aschneuw/ml-chiefs/blob/master/report/report.pdf) for further information. 
-
-*This project was part of the Machine Learning course taught at [EPFL](https://www.epfl.ch) by Prof. Urbanke and Prof. Jaggi.*
+You can consult our [report](report/BRAZ_DURAND_NICOLLE_Project2_Road_Segmentation_ML_EPFL.pdf) for more details.
 
 ### Contributors
-
-- Lucas Braz[@Nagsky](https://github.com/Nagsky)
+- Lucas Braz [@Nagsky](https://github.com/Nagsky)
 - Clément Nicolle [@Clement-Nicolle](https://github.com/Clement-Nicolle)
 - Pierre-Alain Durand [@pierre-alain9](https://github.com/pierre-alain9)
 
-### Setup Environment
-Our setup requires a Default Unix Environment (Ubuntu 16.04, or MAC OS X) with an installed Pyhton 3.5 or 3.6 Environment. Our implementation also requires the command `sha256sum` which is integrated OOB in Ubuntu. If you use OS X or Windows, install the command or do the model verification by computing the SHA256 with the appropriate tools. (Read more about model verification below)
+Our U-Net graph:
 
+![](report/figures/our_unet.png)
+
+See some of our results:
+
+![](report/figures/output_test.png)
+
+### Setup Environment
+We run on Windows 10 with Conda 4.11 (Python 3.8) installed and Pytorch 1.10. It should work with any 3.6+ Python version with pip.
+
+```bash
+pip3 install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio===0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+pip3 install numpy
+pip3 install sklearn
+pip3 install scipy
+pip3 install skimage
+pip3 install matplotlib
+pip3 install tqdm
+pip3 install glob
+pip3 install Pillow
+```
 
 ### Run
 
-To generate our final Kaggle submission execute:
+To generate our final AIcrowd submission execute:
 
    ```bash
 ./run.py
    ```
-
-The predictions and the submission file are saved in the folder `prediction/`
