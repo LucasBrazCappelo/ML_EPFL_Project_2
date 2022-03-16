@@ -10,7 +10,7 @@ The train and evaluation contains [100 train images of size 400x400](training) a
 You can consult our [report](report/BRAZ_DURAND_NICOLLE_Project2_Road_Segmentation_ML_EPFL.pdf) for more details.
 
 ### Contributors
-- Lucas Braz [@Nagsky](https://github.com/Nagsky)
+- Lucas Braz [@LucasBrazCappelo](https://github.com/LucasBrazCappelo)
 - Clément Nicolle [@Clement-Nicolle](https://github.com/Clement-Nicolle)
 - Pierre-Alain Durand [@pierre-alain9](https://github.com/pierre-alain9)
 
